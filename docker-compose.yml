@@ -1,0 +1,28 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: cleaning_java_crm_postgres
+    environment:
+      POSTGRES_DB: cleaning_crm
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: devpass
+      TZ: UTC
+      PGTZ: UTC
+    ports:
+      - "5432:5432"
+    volumes:
+      - cleaning_crm_java:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: cleaning_java_crm_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@local.dev
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+
+volumes:
+  cleaning_crm_java:
