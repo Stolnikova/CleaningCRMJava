@@ -1,4 +1,4 @@
-package com.example.cleaningcrmjava.services.implementations;
+package com.example.cleaningcrmjava.service.impl;
 
 import com.example.cleaningcrmjava.dto.requests.CreateAddressRequest;
 import com.example.cleaningcrmjava.dto.requests.UpdateAddressRequest;
